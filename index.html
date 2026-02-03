@@ -7,8 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- HOME PAGE -->
+    <div id="homePage" class="page active">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-nav">SneakerHub</div>
+                <div class="nav-links">
+                    <a href="#" onclick="switchPage('homePage')" class="nav-link active">Home</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero-section-home">
+            <div class="hero-content-home">
+                <h1>Welcome to SneakerHub</h1>
+                <p>Discover the latest premium sneakers and exclusive collection</p>
+                <div class="home-buttons">
+                    <button class="btn btn-primary" onclick="switchPage('productsPage')">Browse Products</button>
+                    <button class="btn btn-secondary" onclick="switchPage('loginPage')">Sign In</button>
+                    <button class="btn btn-secondary" onclick="switchPage('signupPage')">Create Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- LOGIN PAGE -->
-    <div id="loginPage" class="page active">
+    <div id="loginPage" class="page">
         <div class="auth-container">
             <div class="auth-card">
                 <div class="auth-header">

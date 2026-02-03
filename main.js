@@ -8,10 +8,10 @@ const USER_KEY = 'sneakerhub_current_user';
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
-    loadProducts();
+    setupEventListeners();
     loadCart();
     checkUserLogin();
-    setupEventListeners();
+    loadProducts();
 });
 
 // ===== SETUP EVENT LISTENERS =====
@@ -64,6 +64,9 @@ function displayProducts(productsToDisplay) {
 
     productsGrid.innerHTML = '';
     
+    // Use document fragment for better performance
+    const fragment = document.createDocumentFragment();
+    
     productsToDisplay.forEach(product => {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
@@ -78,8 +81,10 @@ function displayProducts(productsToDisplay) {
                 </div>
             </div>
         `;
-        productsGrid.appendChild(productCard);
+        fragment.appendChild(productCard);
     });
+    
+    productsGrid.appendChild(fragment);
 }
 
 // ===== FILTER PRODUCTS =====
@@ -333,6 +338,8 @@ function checkUserLogin() {
     if (user) {
         currentUser = JSON.parse(user);
         switchPage('productsPage');
+    } else {
+        switchPage('homePage');
     }
 }
 
@@ -358,14 +365,14 @@ function switchPage(pageId) {
     if (selectedPage) {
         selectedPage.classList.add('active');
         
-        // Reload cart display when switching to cart page
+        // Only render content when needed
         if (pageId === 'cartPage') {
             displayCart();
-        }
-        
-        // Reload products when switching to products page
-        if (pageId === 'productsPage') {
-            displayProducts(products);
+        } else if (pageId === 'productsPage') {
+            // Only redisplay if products are already loaded
+            if (products.length > 0) {
+                displayProducts(products);
+            }
         }
     }
 }
