@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SneakerHub - Premium Sneaker Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- LOGIN PAGE -->
+    <div id="loginPage" class="page active">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1 class="logo">SneakerHub</h1>
+                    <p class="tagline">Premium Sneaker Store</p>
+                </div>
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="#" onclick="switchPage('signupPage')">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIGNUP PAGE -->
+    <div id="signupPage" class="page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1 class="logo">SneakerHub</h1>
+                    <p class="tagline">Join the Community</p>
+                </div>
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirm">Confirm Password</label>
+                        <input type="password" id="signupConfirm" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="#" onclick="switchPage('loginPage')">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="productsPage" class="page">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-nav">SneakerHub</div>
+                <div class="nav-links">
+                    <a href="#" onclick="switchPage('productsPage')" class="nav-link active">Shop</a>
+                    <a href="#" onclick="switchPage('cartPage')" class="nav-link">
+                        <span class="cart-icon">🛒</span>
+                        <span id="cartCount" class="cart-count">0</span>
+                    </a>
+                    <a href="#" onclick="logout()" class="nav-link logout-btn">Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Elevate Your Style</h1>
+                <p>Discover the latest premium sneakers and shoes</p>
+            </div>
+        </div>
+
+        <div class="products-container">
+            <div class="filters-section">
+                <h3>Filter</h3>
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" id="filterAll" checked onchange="filterProducts()"> All Products
+                    </label>
+                    <label>
+                        <input type="checkbox" id="filterUnder100" onchange="filterProducts()"> Under $100
+                    </label>
+                    <label>
+                        <input type="checkbox" id="filterUnder150" onchange="filterProducts()"> Under $150
+                    </label>
+                    <label>
+                        <input type="checkbox" id="filterOver150" onchange="filterProducts()"> $150+
+                    </label>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CART PAGE -->
+    <div id="cartPage" class="page">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-nav">SneakerHub</div>
+                <div class="nav-links">
+                    <a href="#" onclick="switchPage('productsPage')" class="nav-link">Shop</a>
+                    <a href="#" onclick="switchPage('cartPage')" class="nav-link active">
+                        <span class="cart-icon">🛒</span>
+                        <span id="cartCount2" class="cart-count">0</span>
+                    </a>
+                    <a href="#" onclick="logout()" class="nav-link logout-btn">Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="cart-container">
+            <h1>Shopping Cart</h1>
+            <div id="cartContent" class="cart-content">
+                <!-- Cart items will be loaded here by JavaScript -->
+            </div>
+            <div id="emptyCart" class="empty-cart">
+                <p>Your cart is empty</p>
+                <a href="#" onclick="switchPage('productsPage')" class="btn btn-primary">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - SneakerHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-nav">SneakerHub</div>
+            <div class="nav-links">
+                <a href="products.html" class="nav-link active">Shop</a>
+                <a href="cart.html" class="nav-link">
+                    <span class="cart-icon">🛒</span>
+                    <span id="cartCount" class="cart-count">0</span>
+                </a>
+                <a href="index.html" class="nav-link logout-btn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Elevate Your Style</h1>
+            <p>Discover the latest premium sneakers and shoes</p>
+        </div>
+    </div>
+
+    <div class="products-container">
+        <div class="filters-section">
+            <h3>Filter</h3>
+            <div class="filter-group">
+                <label>
+                    <input type="checkbox" id="filterAll" checked onchange="filterProducts()"> All Products
+                </label>
+                <label>
+                    <input type="checkbox" id="filterUnder100" onchange="filterProducts()"> Under $100
+                </label>
+                <label>
+                    <input type="checkbox" id="filterUnder150" onchange="filterProducts()"> Under $150
+                </label>
+                <label>
+                    <input type="checkbox" id="filterOver150" onchange="filterProducts()"> $150+
+                </label>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

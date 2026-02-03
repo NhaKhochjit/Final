@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - SneakerHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-nav">SneakerHub</div>
+            <div class="nav-links">
+                <a href="products.html" class="nav-link">Shop</a>
+                <a href="cart.html" class="nav-link active">
+                    <span class="cart-icon">🛒</span>
+                    <span id="cartCount2" class="cart-count">0</span>
+                </a>
+                <a href="index.html" class="nav-link logout-btn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cart-container">
+        <h1>Shopping Cart</h1>
+        <div id="cartContent" class="cart-content">
+            <!-- Cart items will be loaded here by JavaScript -->
+        </div>
+        <div id="emptyCart" class="empty-cart">
+            <p>Your cart is empty</p>
+            <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
